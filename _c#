@@ -1,0 +1,21 @@
+#!/bin/sh
+
+SDK=${SDK:-4} # 4.5 target results in Npgsql.dll version / gac path resolution issue
+
+project="$1" && shift
+option=compile
+[ $# -gt 0 ] && option="$1" && shift
+
+[ -d $project ] && cd $project
+
+case "$option" in
+  "compile")
+    flags="-debug -sdk:$SDK -nowarn:219"
+    refs=`cat refs 2>/dev/null` && [ "x$refs" != "x" ] && refs="-r:$refs"
+    mcs $flags $refs *.cs -out:"$project".exe
+    ;;
+  "run"|"exec"|"execute")
+#    MONO_LOG_LEVEL=debug \
+    mono "$project".exe
+    ;;
+esac
