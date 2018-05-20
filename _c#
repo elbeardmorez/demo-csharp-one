@@ -1,17 +1,22 @@
-#!/bin/sh
+#!/bin/bash
 
-SDK=${SDK:-4} # 4.5 target results in Npgsql.dll version / gac path resolution issue
+SDK=${SDK:-4.5}
 
-project="$1" && shift
 option=compile
-[ $# -gt 0 ] && option="$1" && shift
+[[ $# -gt 0 && "`echo "$1" | sed -n '/\(build\|compile\|run\|exec\|execute\)/p'`" != "x" ]] && option="$1" && shift
 
-[ -d $project ] && cd $project
+bin="`ls -1 *exe`"
+[ $# -gt 0 ] && bin="$1.exe" && shift
+project="${bin%.exe}"
+
+[ -d "$project" ] && cd $project
 
 case "$option" in
   "compile")
     flags="-debug -sdk:$SDK -nowarn:219"
     refs=`cat refs 2>/dev/null` && [ "x$refs" != "x" ] && refs="-r:$refs"
+    [ "x$SDK" == "x4.5" ] && refs="$refs -lib:/usr/local/lib/mono/gac"
+    # sdk 4.5 target results in Npgsql.dll version / gac path resolution issue, so be explicit
     mcs $flags $refs *.cs -out:"$project".exe
     ;;
   "run"|"exec"|"execute")
