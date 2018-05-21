@@ -1,11 +1,11 @@
-//
-//  ____  _     __  __      _        _
+// 
+//  ____  _     __  __      _        _ 
 // |  _ \| |__ |  \/  | ___| |_ __ _| |
 // | | | | '_ \| |\/| |/ _ \ __/ _` | |
 // | |_| | |_) | |  | |  __/ || (_| | |
 // |____/|_.__/|_|  |_|\___|\__\__,_|_|
 //
-// Auto-generated from test on 2015-02-12 20:33:53Z.
+// Auto-generated from sqllinq on 2018-05-24 17:12:00Z.
 // Please visit http://code.google.com/p/dblinq2007/ for more information.
 //
 using System;

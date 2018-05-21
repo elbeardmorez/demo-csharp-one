@@ -19,15 +19,15 @@ class Program {
     fnMath();
     fnDB();
     fnThreading();
-    fnLINQ();
+    fnSqlLinq();
   }
 
-  static void fnLINQ() {
-    Console.WriteLine("\n# fnLINQ");
+  static void fnSqlLinq() {
+    Console.WriteLine("\n# fnSqlLinq");
 
     sw.Restart();
 
-    zLINQ linq = new zLINQ();
+    zSqlLinq sqlLinq = new zSqlLinq();
 
     sw.Stop();
     Console.WriteLine("[elapsed] {0}", sw.Elapsed);
