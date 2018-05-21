@@ -3,7 +3,7 @@
 SDK=${SDK:-4.5}
 
 option=compile
-[[ $# -gt 0 && "`echo "$1" | sed -n '/\(build\|compile\|run\|exec\|execute\)/p'`" != "x" ]] && option="$1" && shift
+[[ $# -gt 0 && "x`echo "$1" | sed -n '/\(build\|compile\|run\|exec\|execute\)/p'`" != "x" ]] && option="$1" && shift
 
 bin="`ls -1 *exe`"
 [ $# -gt 0 ] && bin="$1.exe" && shift
