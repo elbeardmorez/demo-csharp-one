@@ -1,14 +1,19 @@
 #!/bin/bash
 
+IFSORG="$IFS"
+
 SDK=${SDK:-4.5}
 
 option=compile
 [[ $# -gt 0 && "x`echo "$1" | sed -n '/\(build\|compile\|run\|exec\|execute\)/p'`" != "x" ]] && option="$1" && shift
 
-bin="`ls -1 *exe`"
+bin=""
 [ $# -gt 0 ] && bin="$1.exe" && shift
-project="${bin%.exe}"
+IFS=$'\n'; bins=(`ls -1 *exe 2>/dev/null`); IFS=$IFSORG
+[ ${#bins[@]} -gt 0 ] && for f in "${bins[@]}"; do [ "x$bin" == "x" ] && bin="$f" && continue; [ "x$bin" != "x$f" ] && rm ./$f*; done
+[ "x$bin" == "x" ] && bin="demo.exe"
 
+project="${bin%.exe}"
 [ -d "$project" ] && cd $project
 
 case "$option" in
