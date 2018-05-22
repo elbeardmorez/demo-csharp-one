@@ -1,8 +1,9 @@
 
 using System;
 using System.Diagnostics;
-using System.Math;
 using System.Security.Cryptography;
+using static System.Console; // C#6
+using static System.Math; // C#6
 
 public static class zMath {
 //public class zMath {
@@ -17,18 +18,20 @@ public static class zMath {
     int lRes = -1;
     double d, dRnd;
 
-    d = -12.23; dRnd = Math.Round(d, MidpointRounding.AwayFromZero);
-    Console.WriteLine("d: {0}, dRnd (away from 0): {1}", d, dRnd);
-    d = 12.23; dRnd = Math.Round(d, MidpointRounding.AwayFromZero);
-    Console.WriteLine("d: {0}, dRnd (away from 0): {1}", d, dRnd);
-    d = -5.5; dRnd = Math.Round(d, MidpointRounding.AwayFromZero);
-    Console.WriteLine("d: {0}, dRnd (away from 0): {1}", d, dRnd);
-    d = 5.5; dRnd = Math.Round(d, MidpointRounding.AwayFromZero);
-    Console.WriteLine("d: {0}, dRnd (away from 0): {1}", d, dRnd);
-    d = -0.5; dRnd = Math.Round(d);
-    Console.WriteLine("d: {0}, dRnd: {1}", d, dRnd);
-    d = 0.5; dRnd = Math.Round(d);
-    Console.WriteLine("d: {0}, dRnd: {1}", d, dRnd);
+    d = PI; dRnd = Round(d, MidpointRounding.AwayFromZero);
+    WriteLine("d: {0}, dRnd (away from 0): {1}", d, dRnd);
+    d = -12.23; dRnd = Round(d, MidpointRounding.AwayFromZero);
+    WriteLine("d: {0}, dRnd (away from 0): {1}", d, dRnd);
+    d = 12.23; dRnd = Round(d, MidpointRounding.AwayFromZero);
+    WriteLine("d: {0}, dRnd (away from 0): {1}", d, dRnd);
+    d = -5.5; dRnd = Round(d, MidpointRounding.AwayFromZero);
+    WriteLine("d: {0}, dRnd (away from 0): {1}", d, dRnd);
+    d = 5.5; dRnd = Round(d, MidpointRounding.AwayFromZero);
+    WriteLine("d: {0}, dRnd (away from 0): {1}", d, dRnd);
+    d = -0.5; dRnd = Round(d);
+    WriteLine("d: {0}, dRnd: {1}", d, dRnd);
+    d = 0.5; dRnd = Round(d);
+    WriteLine("d: {0}, dRnd: {1}", d, dRnd);
     return lRes;
   }
   public static string randomString(int length) {
