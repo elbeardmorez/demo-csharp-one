@@ -28,5 +28,7 @@ specification of the desired binary name is optional
 `> ./_c# run`
 
 ### debugging
+using *sdb*, insert `Debugger.Break();` at the appropriate code line (requires `using System.Diagnostics`)
+
 `> sdb "run demo-c#-one.exe`
 

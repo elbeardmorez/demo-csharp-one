@@ -4,7 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class zData {
-  ArrayList al;
+
+  public ArrayList al;
   public Dictionary<string, KeyValuePair<string, string>> dic { get; private set; }
 
   public zData(long q) :
