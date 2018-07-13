@@ -28,7 +28,7 @@ public class zData {
     }
   }
   public override string ToString() {
-    foreach (KeyValuePair<string, string> kv in al)
+    foreach (KeyValuePair<string, int> kv in al)
       Console.WriteLine("{0}", kv);
 
     int l;
