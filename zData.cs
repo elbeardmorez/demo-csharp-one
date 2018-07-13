@@ -19,7 +19,7 @@ public class zData {
     for (l = 1; l <= q; l++) {
       if (random) {
         sVal = zMath.randomString(20);
-//        Console.WriteLine("new randomstring generated: '{0}'", sVal);
+        Console.WriteLine("new randomstring generated: '{0}'", sVal);
       } else
         sVal = l.ToString();
       al.Add(new KeyValuePair<string, int>("ArrayList item: " + l, l));
